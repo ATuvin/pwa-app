@@ -4,6 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
+  base: '/pwa-app/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
