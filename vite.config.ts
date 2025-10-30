@@ -41,6 +41,8 @@ export default defineConfig({
         theme_color: '#2196F3',
         background_color: '#ffffff',
         display: 'standalone',
+        start_url: '/pwa-app/',
+        scope: '/pwa-app/',
         icons: [
           { src: 'pwa-192x192.png', sizes: '192x192', type: 'image/png' },
           { src: 'pwa-512x512.png', sizes: '512x512', type: 'image/png' }
@@ -51,6 +53,8 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        navigateFallback: '/pwa-app/index.html',
+        navigateFallbackDenylist: [/^\/_/, /\/[^/?]+\.[^/]+$/],
       }
     })
   ],
