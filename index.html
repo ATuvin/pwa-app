@@ -22,6 +22,15 @@
   <body>
     <div id="root"></div>
     
+    <script>
+      // Защита от редиректа на корневой домен при обновлении страницы
+      if (location.pathname !== '/pwa-app/' && !location.pathname.startsWith('/pwa-app/')) {
+        // Если мы на корневом домене, перенаправляем на правильный путь
+        if (location.hostname === 'atuvin.github.io' && location.pathname === '/') {
+          location.replace('/pwa-app/');
+        }
+      }
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

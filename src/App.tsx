@@ -47,6 +47,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter
+        basename="/pwa-app"
         future={{
           v7_startTransition: true,
           v7_relativeSplatPath: true,
