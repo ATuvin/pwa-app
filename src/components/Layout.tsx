@@ -73,10 +73,13 @@ export default function Layout() {
           onChange={handleNavigation}
           showLabels
           sx={{
-            backgroundColor: '#f5f5f5',
+            backgroundColor: 'transparent',
             height: 64,
             px: 2,
             py: 1,
+            '& .MuiBottomNavigationAction-root': {
+              minWidth: 'auto',
+            },
           }}
         >
           {navigationItems.map((item) => (
