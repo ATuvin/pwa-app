@@ -741,9 +741,10 @@ export default function ShiftPage() {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseDialog}>Отмена</Button>
+          <Button variant="contained" color="secondary" onClick={handleCloseDialog}>Отмена</Button>
           <Button 
             variant="contained" 
+            color="success"
             onClick={handleAddOperation} 
             disabled={!canAddOperation}
             startIcon={editingIndex !== null ? <Edit /> : <Add />}

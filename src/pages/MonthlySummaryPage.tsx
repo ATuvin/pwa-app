@@ -1,4 +1,4 @@
-import { Container, Typography, Paper, Alert, Button, Stack, TextField } from '@mui/material';
+import { Container, Typography, Paper, Button, Stack, TextField } from '@mui/material';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useState } from 'react';
 import { format, startOfMonth, endOfMonth } from 'date-fns';
@@ -21,7 +21,7 @@ export default function MonthlySummaryPage() {
         </Typography>
         <Button size="small" onClick={() => navigate(-1)}>Закрыть</Button>
       </div>
-      <Paper variant="outlined" sx={{ p: 3 }}>
+      <Paper variant="outlined">
         <Stack spacing={2} maxWidth={360}>
           <TextField
             label="Месяц"
@@ -48,7 +48,6 @@ export default function MonthlySummaryPage() {
           >
             Сформировать отчет
           </Button>
-          <Alert severity="info">Формирование и экспорт будут добавлены на следующем шаге</Alert>
         </Stack>
       </Paper>
     </Container>

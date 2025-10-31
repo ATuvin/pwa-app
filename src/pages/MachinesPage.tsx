@@ -438,10 +438,17 @@ export default function MachinesPage() {
                 Импорт/Экспорт данных
               </Typography>
               <Box display="flex" gap={2}>
-                <Button variant="outlined" onClick={handleExportData}>
+                <Button 
+                  variant="contained" 
+                  onClick={handleExportData}
+                >
                   Экспортировать JSON
                 </Button>
-                <Button variant="outlined" color="secondary" onClick={triggerImport}>
+                <Button 
+                  variant="contained" 
+                  color="secondary" 
+                  onClick={triggerImport}
+                >
                   Импортировать JSON
                 </Button>
                 <input
@@ -465,6 +472,7 @@ export default function MachinesPage() {
             </Typography>
             <Button
               variant="contained"
+              color="success"
               startIcon={<Add />}
               onClick={() => handleOpen()}
             >
@@ -573,6 +581,7 @@ export default function MachinesPage() {
             </Typography>
             <Button
               variant="contained"
+              color="success"
               startIcon={<Add />}
               onClick={() => handleOpenPart()}
             >
@@ -717,6 +726,7 @@ export default function MachinesPage() {
                 </Typography>
                 <Button
                   variant="contained"
+                  color="success"
                   size="small"
                   startIcon={<Add />}
                   onClick={() => {
@@ -899,7 +909,7 @@ export default function MachinesPage() {
           </Grid>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseOperation}>Отмена</Button>
+          <Button variant="contained" color="secondary" onClick={handleCloseOperation}>Отмена</Button>
           <Button
             onClick={handleSaveOperation}
             variant="contained"

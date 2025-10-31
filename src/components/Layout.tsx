@@ -65,13 +65,19 @@ export default function Layout() {
       </Box>
 
       <Paper
-        sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }}
-        elevation={3}
+        sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, zIndex: 1000 }}
+        elevation={0}
       >
         <BottomNavigation
           value={value}
           onChange={handleNavigation}
           showLabels
+          sx={{
+            backgroundColor: '#f5f5f5',
+            height: 64,
+            px: 2,
+            py: 1,
+          }}
         >
           {navigationItems.map((item) => (
             <BottomNavigationAction

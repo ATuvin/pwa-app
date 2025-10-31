@@ -67,7 +67,7 @@ export default function DailyReportPage() {
         </Typography>
         <Button size="small" onClick={() => navigate(-1)}>Закрыть</Button>
       </Box>
-      <Paper variant="outlined" sx={{ p: 3 }}>
+      <Paper variant="outlined">
         <Stack spacing={2}>
           <Typography variant="body2" sx={{ fontWeight: 'bold' }}>
             Дата: {format(new Date(selectedDate), 'dd.MM.yyyy')}

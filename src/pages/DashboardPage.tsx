@@ -19,6 +19,7 @@ import { calculatePeriodCoefficient } from '@/utils/calculations';
 import { BarChart } from '@mui/x-charts/BarChart';
 import { isHoliday, preloadHolidays } from '@/utils/holidays';
 
+
 export default function DashboardPage() {
   const { profile } = useUserStore();
   const [thisMonthShifts, setThisMonthShifts] = useState(0); // фактически отработано по календарю до сегодня
@@ -171,10 +172,6 @@ export default function DashboardPage() {
 
   return (
     <Container maxWidth="md">
-      <Typography variant="h4" component="h1" gutterBottom>
-        Добро пожаловать, {profile.fullName}
-      </Typography>
-
       <Grid container spacing={3} sx={{ mt: 2 }}>
         <Grid item xs={12}>
           <Card>

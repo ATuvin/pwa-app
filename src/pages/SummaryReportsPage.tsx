@@ -14,15 +14,15 @@ export default function SummaryReportsPage() {
         <Typography variant="h5" component="h1">
           Сводные отчеты
         </Typography>
-        <Button size="small" onClick={() => navigate(-1)}>Закрыть</Button>
+        <Button variant="outlined" size="small" onClick={() => navigate(-1)}>Закрыть</Button>
       </div>
       {/* Фрейм с кнопками */}
-      <Paper variant="outlined" sx={{ p: 2 }}>
+      <Paper variant="outlined">
         <Stack spacing={1} alignItems="center">
-          <Button variant="outlined" size="large" sx={{ width: 240, height: 48 }} onClick={() => { setMode('jobs'); openChooser(); }}>Наряды</Button>
-          <Button variant="outlined" size="large" sx={{ width: 240, height: 48 }} onClick={() => { setMode('machines'); openChooser(); }}>Станки</Button>
-          <Button variant="outlined" size="large" sx={{ width: 240, height: 48 }} onClick={() => { setMode('allParts'); openChooser(); }}>Все детали</Button>
-          <Button variant="outlined" size="large" sx={{ width: 240, height: 48 }} onClick={() => navigate('/reports/summary/select')}>Выбранные детали</Button>
+          <Button variant="contained" size="large" sx={{ width: 240, height: 48 }} onClick={() => { setMode('jobs'); openChooser(); }}>Наряды</Button>
+          <Button variant="contained" size="large" sx={{ width: 240, height: 48 }} onClick={() => { setMode('machines'); openChooser(); }}>Станки</Button>
+          <Button variant="contained" size="large" sx={{ width: 240, height: 48 }} onClick={() => { setMode('allParts'); openChooser(); }}>Все детали</Button>
+          <Button variant="contained" size="large" sx={{ width: 240, height: 48 }} onClick={() => navigate('/reports/summary/select')}>Выбранные детали</Button>
         </Stack>
       </Paper>
 
@@ -32,7 +32,7 @@ export default function SummaryReportsPage() {
           Выберите тип сводного отчета
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => { closeChooser(); navigate(`/reports/summary/period?mode=${mode}`); }}>За период</Button>
+          <Button variant="contained" onClick={() => { closeChooser(); navigate(`/reports/summary/period?mode=${mode}`); }}>За период</Button>
           <Button variant="contained" onClick={() => { closeChooser(); navigate(`/reports/summary/month?mode=${mode}`); }}>За месяц</Button>
         </DialogActions>
       </Dialog>

@@ -59,13 +59,4 @@ export async function calculatePeriodCoefficient(
     : 0;
 }
 
-/**
- * Рассчитать заработную плату
- * TODO: Реализовать когда будут предоставлены формулы
- */
-export function calculateSalary(): number {
-  // Заглушка - нужно будет реализовать по формулам из спецификации
-  // Параметры будут добавлены при реализации
-  return 0;
-}
 

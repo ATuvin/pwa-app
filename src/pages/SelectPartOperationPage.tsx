@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, createSearchParams } from 'react-router-dom';
-import { Box, Button, FormControl, InputLabel, MenuItem, Select, Typography } from '@mui/material';
+import { Container, Typography, Paper, Box, Button, FormControl, InputLabel, MenuItem, Select, Stack } from '@mui/material';
 import { db } from '@/services/database';
 
 export default function SelectPartOperationPage() {
@@ -23,30 +23,38 @@ export default function SelectPartOperationPage() {
   const disabled = !partId || !opId;
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" gap={2} p={2}>
-      <Typography variant="h5">Выбор детали и операции</Typography>
-      <FormControl sx={{ minWidth: 360 }}>
-        <InputLabel id="part-label">Деталь</InputLabel>
-        <Select labelId="part-label" label="Деталь" value={partId} onChange={e => { setPartId(String(e.target.value)); setOpId(''); }}>
-          {parts.map(p => (
-            <MenuItem key={p.id} value={p.id}>{`${p.description} — ${p.name}`}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <FormControl sx={{ minWidth: 360 }} disabled={!partId}>
-        <InputLabel id="op-label">Операция</InputLabel>
-        <Select labelId="op-label" label="Операция" value={opId} onChange={e => setOpId(String(e.target.value))}>
-          {opsForPart.map(o => (
-            <MenuItem key={o.id} value={o.id}>{o.name}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-      <Box display="flex" gap={2} mt={1}>
-        <Button variant="contained" disabled={disabled} onClick={() => navigate({ pathname: '/reports/summary/month', search: `?${createSearchParams({ mode: 'selected', partId, opId })}` })}>За месяц</Button>
-        <Button variant="contained" disabled={disabled} onClick={() => navigate({ pathname: '/reports/summary/period', search: `?${createSearchParams({ mode: 'selected', partId, opId })}` })}>За период</Button>
-        <Button variant="outlined" onClick={() => navigate(-1)}>Закрыть</Button>
-      </Box>
-    </Box>
+    <Container maxWidth="md">
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+        <Typography variant="h5" component="h1">
+          Выбор детали и операции
+        </Typography>
+        <Button size="small" onClick={() => navigate(-1)}>Закрыть</Button>
+      </div>
+      <Paper variant="outlined">
+        <Stack spacing={2} sx={{ p: 3, maxWidth: 360 }}>
+          <FormControl fullWidth>
+            <InputLabel id="part-label">Деталь</InputLabel>
+            <Select labelId="part-label" label="Деталь" value={partId} onChange={e => { setPartId(String(e.target.value)); setOpId(''); }}>
+              {parts.map(p => (
+                <MenuItem key={p.id} value={p.id}>{`${p.description} — ${p.name}`}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl fullWidth disabled={!partId}>
+            <InputLabel id="op-label">Операция</InputLabel>
+            <Select labelId="op-label" label="Операция" value={opId} onChange={e => setOpId(String(e.target.value))}>
+              {opsForPart.map(o => (
+                <MenuItem key={o.id} value={o.id}>{o.name}</MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <Box display="flex" gap={2} width="100%">
+            <Button variant="contained" disabled={disabled} onClick={() => navigate({ pathname: '/reports/summary/month', search: `?${createSearchParams({ mode: 'selected', partId, opId })}` })}>За месяц</Button>
+            <Button variant="contained" disabled={disabled} onClick={() => navigate({ pathname: '/reports/summary/period', search: `?${createSearchParams({ mode: 'selected', partId, opId })}` })}>За период</Button>
+          </Box>
+        </Stack>
+      </Paper>
+    </Container>
   );
 }
 

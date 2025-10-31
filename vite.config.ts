@@ -3,8 +3,9 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 import { fileURLToPath, URL } from 'node:url'
 
-export default defineConfig({
-  base: '/pwa-app/',
+export default defineConfig(({ command }) => ({
+  // В dev режиме используем корневой путь, в production - /pwa-app/
+  base: command === 'serve' ? '/' : '/pwa-app/',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -78,5 +79,5 @@ export default defineConfig({
     port: 3000,
     open: true
   }
-})
+}))
 

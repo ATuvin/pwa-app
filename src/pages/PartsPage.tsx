@@ -151,6 +151,7 @@ export default function PartsPage() {
               <Typography variant="h6">Детали</Typography>
               <Button
                 variant="contained"
+                color="success"
                 startIcon={<Add />}
                 onClick={() => handleOpenPart()}
               >
@@ -200,6 +201,7 @@ export default function PartsPage() {
               <Typography variant="h6">Операции</Typography>
               <Button
                 variant="contained"
+                color="success"
                 startIcon={<Add />}
                 onClick={() => handleOpenOperation()}
                 disabled={parts.length === 0}

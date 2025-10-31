@@ -9,12 +9,12 @@ export default function ReportsPage() {
       <Typography variant="h4" component="h1" gutterBottom>
         Отчеты
       </Typography>
-      <Paper variant="outlined" sx={{ p: 3 }}>
+      <Paper variant="outlined">
         <Stack spacing={2}>
           <Button variant="contained" size="large" onClick={() => navigate('/reports/daily')}>
             Отчет за день
           </Button>
-          <Button variant="outlined" size="large" onClick={() => navigate('/reports/summary')}>
+          <Button variant="contained" size="large" color="secondary" onClick={() => navigate('/reports/summary')}>
             Сводные отчеты
           </Button>
         </Stack>
