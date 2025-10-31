@@ -150,7 +150,7 @@ const theme = createTheme({
     },
     MuiBottomNavigationAction: {
       styleOverrides: {
-        root: ({ ownerState, theme }) => {
+        root: ({ ownerState }) => {
           const colors = {
             main: '#4a90e2',
             dark: '#357abd',
@@ -253,7 +253,7 @@ const theme = createTheme({
     },
     MuiButton: {
       styleOverrides: {
-        root: ({ ownerState, theme }) => {
+        root: ({ ownerState }) => {
           if (ownerState.variant !== 'contained') return {};
           
           const colorMap: Record<string, any> = {
